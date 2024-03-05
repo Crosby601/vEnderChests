@@ -2,16 +2,16 @@ package club.vertuli.venderchests;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class VEnderChests extends JavaPlugin {
+public final class vEnderChests extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
+        getLogger().info("HI");
 
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        getLogger().info("BYE");
     }
 }
