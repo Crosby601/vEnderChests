@@ -7,7 +7,6 @@ public final class vEnderChests extends JavaPlugin {
     @Override
     public void onEnable() {
         getLogger().info("HI");
-        getLogger().info("yo");
     }
 
     @Override
