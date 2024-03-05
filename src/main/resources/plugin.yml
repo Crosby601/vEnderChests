@@ -1,6 +1,6 @@
 name: vEnderChests
 version: '${project.version}'
-main: club.vertuli.venderchests.VEnderChests
+main: club.vertuli.venderchests.vEnderChests
 commands:
   enderchest:
     description: Otwiera enderchest
