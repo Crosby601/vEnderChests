@@ -13,7 +13,7 @@ public class EnderChestGUI {
 
     HashMap<Player, ItemStack[]> enderchestInv = new HashMap<>();
     private Inventory inv;
-    private final String inventoryName = "&9Twoj EnderChest";
+    private final String inventoryName = Color.colorize("&9Twoj EnderChest");
     private final int vipRows = 3;
     private final int svipRows = 4;
     private final int sponsorRows = 5;
