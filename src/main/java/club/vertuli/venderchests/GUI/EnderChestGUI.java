@@ -20,14 +20,14 @@ public class EnderChestGUI {
     private final int swaggerRows = 6;
 
     public void openEnderChestGUI(Player p) {
-        if (p.hasPermission("vEnderChest.vip")) {
-            inv = Bukkit.createInventory(null, 9*vipRows, inventoryName);
-        } else if (p.hasPermission("vEnderChest.svip")) {
-            inv = Bukkit.createInventory(null, 9*svipRows, inventoryName);
+        if (p.hasPermission("vEnderChest.swagger")) {
+            inv = Bukkit.createInventory(null, 9*swaggerRows, inventoryName);
         } else if (p.hasPermission("vEnderChest.sponsor")) {
             inv = Bukkit.createInventory(null, 9*sponsorRows, inventoryName);
-        } else if (p.hasPermission("vEnderChest.swagger")) {
-            inv = Bukkit.createInventory(null, 9*swaggerRows, inventoryName);
+        } else if (p.hasPermission("vEnderChest.svip")) {
+            inv = Bukkit.createInventory(null, 9*svipRows, inventoryName);
+        } else if (p.hasPermission("vEnderChest.vip")) {
+            inv = Bukkit.createInventory(null, 9*vipRows, inventoryName);
         } else {
             vEnderChests.getInstance().getLogger().info(Color.colorize("&9vEnderChest &7- &cBłąd otwierania enderchest'a!"));
         }
