@@ -24,7 +24,7 @@ public class InventoryCloseListener implements Listener {
     private final int swaggerRows = 6;
     @EventHandler
     public void onInventoryClose(InventoryCloseEvent e) {
-        if (e.getPlayer().getInventory().getTitle().equalsIgnoreCase(enderChestGUI.getInventoryName())) {
+        if (e.getInventory().getTitle().equalsIgnoreCase(enderChestGUI.getInventoryName())) {
             HumanEntity p = (Player)e.getPlayer();
             p.sendMessage("zapisywanie");
             if (p.hasPermission("vEnderChest.vip")) {
