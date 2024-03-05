@@ -12,6 +12,8 @@ import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.Arrays;
+
 public class InventoryCloseListener implements Listener {
 
     EnderChestGUI enderChestGUI = new EnderChestGUI();
@@ -23,6 +25,7 @@ public class InventoryCloseListener implements Listener {
     public void onInventoryClose(InventoryCloseEvent e) {
         if (e.getInventory().getName().equalsIgnoreCase(enderChestGUI.getInventoryName())) {
             HumanEntity p = (Player)e.getPlayer();
+            p.sendMessage("zapisywanie");
             if (p.hasPermission("vEnderChest.vip")) {
                 enderChestGUI.getEnderChestInv().put((Player) p,getLoopItems((Player) p, 9*vipRows));
             } else if (p.hasPermission("vEnderChest.svip")) {
@@ -34,6 +37,7 @@ public class InventoryCloseListener implements Listener {
             } else {
                 vEnderChests.getInstance().getLogger().info(Color.colorize("&9vEnderChest &7- &cBłąd zapisywania enderchest'a!"));
             }
+            p.sendMessage("" + Arrays.toString(enderChestGUI.getEnderChestInv().get(p)));
         }
     }
 
