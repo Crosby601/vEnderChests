@@ -1,6 +1,7 @@
 package club.vertuli.venderchests;
 
 import club.vertuli.venderchests.GUI.EnderChestGUI;
+import club.vertuli.venderchests.Listeners.InventoryCloseListener;
 import club.vertuli.venderchests.Listeners.InventoryOpenListener;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
@@ -34,6 +35,7 @@ public final class vEnderChests extends JavaPlugin {
 
     public void registerListeners() {
         Bukkit.getPluginManager().registerEvents(new InventoryOpenListener(), this);
+        Bukkit.getPluginManager().registerEvents(new InventoryCloseListener(), this);
     }
 
     public void registerGUI() {

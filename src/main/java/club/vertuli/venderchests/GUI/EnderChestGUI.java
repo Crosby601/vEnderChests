@@ -43,5 +43,9 @@ public class EnderChestGUI {
         return enderchestInv;
     }
 
+    public String getInventoryName() {
+        return inventoryName;
+    }
+
 
 }
