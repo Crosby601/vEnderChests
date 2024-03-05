@@ -36,7 +36,9 @@ public class EnderChestGUI {
     }
 
     private void initItems(Player p) {
-        p.getInventory().addItem(enderchestInv.get(p));
+        if (enderchestInv.containsKey(p)) {
+            p.getInventory().addItem(enderchestInv.get(p));
+        }
     }
 
     public HashMap<Player, ItemStack[]> getEnderChestInv() {
