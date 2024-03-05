@@ -10,6 +10,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.Arrays;
@@ -27,13 +28,13 @@ public class InventoryCloseListener implements Listener {
             HumanEntity p = (Player)e.getPlayer();
             p.sendMessage("zapisywanie");
             if (p.hasPermission("vEnderChest.vip")) {
-                enderChestGUI.getEnderChestInv().put((Player) p,getLoopItems((Player) p, 9*vipRows));
+                enderChestGUI.getEnderChestInv().put((Player) p,getLoopItems((Player) p, 9*vipRows, e.getInventory()));
             } else if (p.hasPermission("vEnderChest.svip")) {
-                enderChestGUI.getEnderChestInv().put((Player) p,getLoopItems((Player) p, 9*svipRows));
+                enderChestGUI.getEnderChestInv().put((Player) p,getLoopItems((Player) p, 9*svipRows, e.getInventory()));
             } else if (p.hasPermission("vEnderChest.sponsor")) {
-                enderChestGUI.getEnderChestInv().put((Player) p,getLoopItems((Player) p, 9*sponsorRows));
+                enderChestGUI.getEnderChestInv().put((Player) p,getLoopItems((Player) p, 9*sponsorRows, e.getInventory()));
             } else if (p.hasPermission("vEnderChest.swagger")) {
-                enderChestGUI.getEnderChestInv().put((Player) p,getLoopItems((Player) p, 9*swaggerRows));
+                enderChestGUI.getEnderChestInv().put((Player) p,getLoopItems((Player) p, 9*swaggerRows, e.getInventory()));
             } else {
                 vEnderChests.getInstance().getLogger().info(Color.colorize("&9vEnderChest &7- &cBłąd zapisywania enderchest'a!"));
             }
@@ -41,10 +42,10 @@ public class InventoryCloseListener implements Listener {
         }
     }
 
-    private ItemStack[] getLoopItems(Player p, int slots) {
+    private ItemStack[] getLoopItems(Player p, int slots, Inventory inv) {
         ItemStack[] is = new ItemStack[slots];
         for (int i=0; i < slots; i++) {
-            is[i] = p.getInventory().getItem(i);
+            is[i] = inv.getItem(i);
         }
         return is;
     }
