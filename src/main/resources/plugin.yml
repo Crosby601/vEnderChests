@@ -1,3 +1,9 @@
 name: vEnderChests
 version: '${project.version}'
 main: club.vertuli.venderchests.VEnderChests
+commands:
+  enderchest:
+    description: Otwiera enderchest
+    aliases:
+      - ec
+    usage: /enderchest
