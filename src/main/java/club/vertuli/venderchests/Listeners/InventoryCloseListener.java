@@ -14,7 +14,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class InventoryCloseListener implements Listener {
 
-    EnderChestGUI enderChestGUI = vEnderChests.getEnderChestGUI();
+    EnderChestGUI enderChestGUI = new EnderChestGUI();
     private final int vipRows = 3;
     private final int svipRows = 4;
     private final int sponsorRows = 5;

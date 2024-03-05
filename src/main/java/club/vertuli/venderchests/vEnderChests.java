@@ -10,22 +10,18 @@ import org.bukkit.plugin.java.JavaPlugin;
 public final class vEnderChests extends JavaPlugin {
 
     private static vEnderChests instance;
-    private static EnderChestGUI enderChestGUI;
 
     public static vEnderChests getInstance() {
         return instance;
     }
 
-    public static EnderChestGUI getEnderChestGUI() {
-        return enderChestGUI;
-    }
 
     @Override
     public void onEnable() {
         getLogger().info("HI");
         instance = this;
         registerListeners();
-        registerGUI();
+//        registerGUI();
     }
 
     @Override
@@ -38,7 +34,7 @@ public final class vEnderChests extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new InventoryCloseListener(), this);
     }
 
-    public void registerGUI() {
-        enderChestGUI = new EnderChestGUI();
-    }
+//    public void registerGUI() {
+//        enderChestGUI = new EnderChestGUI();
+//    }
 }
