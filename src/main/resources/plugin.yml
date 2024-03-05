@@ -1,0 +1,3 @@
+name: vEnderChests
+version: '${project.version}'
+main: club.vertuli.venderchests.VEnderChests
