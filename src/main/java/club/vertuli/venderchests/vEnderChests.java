@@ -10,9 +10,14 @@ import org.bukkit.plugin.java.JavaPlugin;
 public final class vEnderChests extends JavaPlugin {
 
     private static vEnderChests instance;
+    private EnderChestGUI enderChestGUI = new EnderChestGUI();
 
     public static vEnderChests getInstance() {
         return instance;
+    }
+
+    public EnderChestGUI getEnderChestGUI() {
+        return enderChestGUI;
     }
 
 

@@ -10,7 +10,7 @@ import org.bukkit.event.inventory.InventoryType;
 
 public class InventoryOpenListener implements Listener {
 
-    EnderChestGUI enderChestGUI = new EnderChestGUI();
+    EnderChestGUI enderChestGUI = vEnderChests.getInstance().getEnderChestGUI();
     @EventHandler
     public void onInventoryOpen(InventoryOpenEvent e) {
         if (e.getInventory().getType() == InventoryType.ENDER_CHEST) {

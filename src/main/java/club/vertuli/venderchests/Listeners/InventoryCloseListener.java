@@ -17,14 +17,14 @@ import java.util.Arrays;
 
 public class InventoryCloseListener implements Listener {
 
-    EnderChestGUI enderChestGUI = new EnderChestGUI();
+    EnderChestGUI enderChestGUI = vEnderChests.getInstance().getEnderChestGUI();
     private final int vipRows = 3;
     private final int svipRows = 4;
     private final int sponsorRows = 5;
     private final int swaggerRows = 6;
     @EventHandler
     public void onInventoryClose(InventoryCloseEvent e) {
-        if (e.getPlayer().getInventory().getTitle().equalsIgnoreCase(enderChestGUI.getInventoryName())) {
+        if (e.getInventory().getTitle().equalsIgnoreCase(enderChestGUI.getInventoryName())) {
             HumanEntity p = (Player)e.getPlayer();
             p.sendMessage("zapisywanie");
             if (p.hasPermission("vEnderChest.vip")) {
