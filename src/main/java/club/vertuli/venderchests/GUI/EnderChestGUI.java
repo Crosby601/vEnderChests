@@ -20,26 +20,32 @@ public class EnderChestGUI {
     private final int swaggerRows = 6;
 
     public void openEnderChestGUI(Player p) {
+        int slots = 0;
         if (p.hasPermission("vEnderChest.swagger")) {
-            inv = Bukkit.createInventory(null, 9*swaggerRows, inventoryName);
+            slots = 9*swaggerRows;
+            inv = Bukkit.createInventory(null, slots, inventoryName);
         } else if (p.hasPermission("vEnderChest.sponsor")) {
-            inv = Bukkit.createInventory(null, 9*sponsorRows, inventoryName);
+            slots = 9*sponsorRows;
+            inv = Bukkit.createInventory(null, slots, inventoryName);
         } else if (p.hasPermission("vEnderChest.svip")) {
-            inv = Bukkit.createInventory(null, 9*svipRows, inventoryName);
+            slots = 9*svipRows;
+            inv = Bukkit.createInventory(null, slots, inventoryName);
         } else if (p.hasPermission("vEnderChest.vip")) {
-            inv = Bukkit.createInventory(null, 9*vipRows, inventoryName);
+            slots = 9*vipRows;
+            inv = Bukkit.createInventory(null, slots, inventoryName);
         } else {
             vEnderChests.getInstance().getLogger().info(Color.colorize("&9vEnderChest &7- &cBłąd otwierania enderchest'a!"));
         }
-        initItems(p);
+        initItems(p, slots);
         p.openInventory(inv);
     }
 
-    private void initItems(Player p) {
+    private void initItems(Player p, int slots) {
         if (!enderchestInv.containsKey(p)) return;
         int a = 0;
         for(ItemStack i : enderchestInv.get(p)) {
             inv.setItem(a, i);
+            if (slots == a) return;
             a++;
         }
     }

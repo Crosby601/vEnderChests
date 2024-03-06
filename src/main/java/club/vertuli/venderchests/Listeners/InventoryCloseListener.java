@@ -44,7 +44,13 @@ public class InventoryCloseListener implements Listener {
     }
 
     private ItemStack[] getLoopItems(Player p, int slots, Inventory inv) {
-        ItemStack[] is = new ItemStack[slots];
+        EnderChestGUI enderChestGUI = vEnderChests.getInstance().getEnderChestGUI();
+        ItemStack[] is;
+        if (enderChestGUI.getEnderChestInv().containsKey(p)) {
+            is = enderChestGUI.getEnderChestInv().get(p);
+        } else {
+            is = new ItemStack[slots];
+        }
         for (int i=0; i < slots; i++) {
             if (inv.getItem(i) == null) {
                 ItemStack air = new ItemStack(Material.AIR);
