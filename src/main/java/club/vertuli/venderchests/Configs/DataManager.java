@@ -45,7 +45,7 @@ public class DataManager {
                 items[a] = is;
                 a++;
             }
+            enderChestGUI.getEnderChestInv().put(p, items);
         }
-        enderChestGUI.getEnderChestInv().put(p, items);
     }
 }
