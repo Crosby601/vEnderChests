@@ -39,7 +39,7 @@ public class EnderChestGUI {
         if (!enderchestInv.containsKey(p)) return;
         int a = 0;
         for(ItemStack i : enderchestInv.get(p)) {
-            p.getInventory().setItem(a, i);
+            inv.setItem(a, i);
             a++;
         }
     }
