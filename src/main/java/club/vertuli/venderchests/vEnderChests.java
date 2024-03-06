@@ -1,5 +1,7 @@
 package club.vertuli.venderchests;
 
+import club.vertuli.venderchests.Configs.ConfigCreator;
+import club.vertuli.venderchests.Configs.DataManager;
 import club.vertuli.venderchests.GUI.EnderChestGUI;
 import club.vertuli.venderchests.Listeners.InventoryCloseListener;
 import club.vertuli.venderchests.Listeners.InventoryOpenListener;
@@ -10,6 +12,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public final class vEnderChests extends JavaPlugin {
 
     private static vEnderChests instance;
+    private ConfigCreator dataManager;
     private EnderChestGUI enderChestGUI = new EnderChestGUI();
 
     public static vEnderChests getInstance() {
@@ -26,12 +29,34 @@ public final class vEnderChests extends JavaPlugin {
         getLogger().info("HI");
         instance = this;
         registerListeners();
+        loadConfig();
 //        registerGUI();
     }
 
     @Override
     public void onDisable() {
         getLogger().info("BYE");
+        saveConfig();
+    }
+
+    public void loadConfig() {
+        dataManager = new ConfigCreator(this, "dataManager.yml");
+        DataManager data = new DataManager();
+
+        data.loadData(dataManager.getConfig());
+        dataManager.save();
+    }
+
+    public void saveConfig() {
+        dataManager = new ConfigCreator(this, "dataManager.yml");
+        DataManager data = new DataManager();
+
+        for(String key : dataManager.getConfig().getKeys(false)){
+            dataManager.getConfig().set(key,null);
+        }
+
+        data.saveConfig(dataManager.getConfig());
+        dataManager.save();
     }
 
     public void registerListeners() {

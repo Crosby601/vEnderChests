@@ -44,8 +44,8 @@ public class EnderChestGUI {
         if (!enderchestInv.containsKey(p)) return;
         int a = 0;
         for(ItemStack i : enderchestInv.get(p)) {
-            inv.setItem(a, i);
             if (slots == a) return;
+            inv.setItem(a, i);
             a++;
         }
     }
