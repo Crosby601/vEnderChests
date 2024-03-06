@@ -22,7 +22,7 @@ public class DataManager {
         for(Player p : keys) {
             cfg.set(id + "player", p);
             for(ItemStack i :enderChestGUI.getEnderChestInv().get(p)) {
-                cfg.set(id + "items", i);
+                cfg.set(id + "items", i.serialize());
             }
             id++;
         }
@@ -34,17 +34,11 @@ public class DataManager {
         if (section == null) return;
         Set<String> keys = section.getKeys(false);
         int ids = keys.size();
-        Player p = null;
-        ItemStack[] items = new ItemStack[0];
-        List<ItemStack> list = null;
+        Player p;
         for (int i = 0; i < ids; i++) {
             p = (Player) cfg.getOfflinePlayer(i + "player");
-            list = (List<ItemStack>) cfg.getList(i + "items");
-            int a = 0;
-            for(ItemStack is : list) {
-                items[a] = is;
-                a++;
-            }
+            List<ItemStack> itms = (List<ItemStack>)cfg.get(i + "items");
+            ItemStack[] items = itms.toArray(new ItemStack[0]);
             enderChestGUI.getEnderChestInv().put(p, items);
         }
     }
