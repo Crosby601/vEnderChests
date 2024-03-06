@@ -47,7 +47,7 @@ public class InventoryCloseListener implements Listener {
         EnderChestGUI enderChestGUI = vEnderChests.getInstance().getEnderChestGUI();
         ItemStack[] is;
         if (enderChestGUI.getEnderChestInv().containsKey(p)) {
-            is = enderChestGUI.getEnderChestInv().get(p);
+            is = enderChestGUI.getEnderChestInv().get(p).clone();
         } else {
             is = new ItemStack[slots];
         }
