@@ -3,6 +3,7 @@ package club.vertuli.venderchests.GUI;
 import club.vertuli.venderchests.Utils.Color;
 import club.vertuli.venderchests.vEnderChests;
 import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -13,11 +14,25 @@ public class EnderChestGUI {
 
     HashMap<Player, ItemStack[]> enderchestInv = new HashMap<>();
     private Inventory inv;
-    private final String inventoryName = Color.colorize("&9Twoj EnderChest");
-    private final int vipRows = 3;
-    private final int svipRows = 4;
-    private final int sponsorRows = 5;
-    private final int swaggerRows = 6;
+    private String inventoryName;
+    private int vipRows;
+    private int svipRows;
+    private int sponsorRows;
+    private int swaggerRows;
+
+    public EnderChestGUI() {
+        loadConfig();
+    }
+
+    public void loadConfig() {
+        FileConfiguration cfg = vEnderChests.getInstance().getConfig();
+        this.vipRows = cfg.getInt("Ranks.vip.rows");
+        this.svipRows = cfg.getInt("Ranks.svip.rows");
+        this.sponsorRows = cfg.getInt("Ranks.sponsor.rows");
+        this.swaggerRows = cfg.getInt("Ranks.swagger.rows");
+
+        this.inventoryName = Color.colorize(cfg.getString("enderChestTitle"));
+    }
 
     public void openEnderChestGUI(Player p) {
         int slots = 0;
@@ -58,5 +73,19 @@ public class EnderChestGUI {
         return inventoryName;
     }
 
+    public int getVipRows() {
+        return vipRows;
+    }
 
+    public int getSvipRows() {
+        return svipRows;
+    }
+
+    public int getSponsorRows() {
+        return sponsorRows;
+    }
+
+    public int getSwaggerRows() {
+        return swaggerRows;
+    }
 }

@@ -19,22 +19,19 @@ import java.util.Arrays;
 public class InventoryCloseListener implements Listener {
 
     EnderChestGUI enderChestGUI = vEnderChests.getInstance().getEnderChestGUI();
-    private final int vipRows = 3;
-    private final int svipRows = 4;
-    private final int sponsorRows = 5;
-    private final int swaggerRows = 6;
+
     @EventHandler
     public void onInventoryClose(InventoryCloseEvent e) {
         if (e.getInventory().getTitle().equalsIgnoreCase(enderChestGUI.getInventoryName())) {
             HumanEntity p = (Player)e.getPlayer();
             if (p.hasPermission("vEnderChest.swagger")) {
-                enderChestGUI.getEnderChestInv().put((Player) p,getLoopItems((Player) p, 9*swaggerRows, e.getInventory()));
+                enderChestGUI.getEnderChestInv().put((Player) p,getLoopItems((Player) p, 9*enderChestGUI.getSwaggerRows(), e.getInventory()));
             } else if (p.hasPermission("vEnderChest.sponsor")) {
-                enderChestGUI.getEnderChestInv().put((Player) p,getLoopItems((Player) p, 9*sponsorRows, e.getInventory()));
+                enderChestGUI.getEnderChestInv().put((Player) p,getLoopItems((Player) p, 9*enderChestGUI.getSponsorRows(), e.getInventory()));
             } else if (p.hasPermission("vEnderChest.svip")) {
-                enderChestGUI.getEnderChestInv().put((Player) p,getLoopItems((Player) p, 9*svipRows, e.getInventory()));
+                enderChestGUI.getEnderChestInv().put((Player) p,getLoopItems((Player) p, 9*enderChestGUI.getSvipRows(), e.getInventory()));
             } else if (p.hasPermission("vEnderChest.vip")) {
-                enderChestGUI.getEnderChestInv().put((Player) p,getLoopItems((Player) p, 9*vipRows, e.getInventory()));
+                enderChestGUI.getEnderChestInv().put((Player) p,getLoopItems((Player) p, 9*enderChestGUI.getVipRows(), e.getInventory()));
             } else {
                 vEnderChests.getInstance().getLogger().info(Color.colorize("&9vEnderChest &7- &cBłąd zapisywania enderchest'a!"));
             }

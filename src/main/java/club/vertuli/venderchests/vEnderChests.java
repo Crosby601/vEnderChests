@@ -1,6 +1,7 @@
 package club.vertuli.venderchests;
 
-import club.vertuli.venderchests.Commands.EnderChest;
+import club.vertuli.venderchests.Commands.EnderChestCommand;
+import club.vertuli.venderchests.Commands.vEnderChestCommand;
 import club.vertuli.venderchests.Configs.ConfigCreator;
 import club.vertuli.venderchests.Configs.DataManager;
 import club.vertuli.venderchests.GUI.EnderChestGUI;
@@ -8,7 +9,6 @@ import club.vertuli.venderchests.Listeners.InventoryCloseListener;
 import club.vertuli.venderchests.Listeners.InventoryOpenListener;
 import club.vertuli.venderchests.Listeners.PlayerJoinListener;
 import org.bukkit.Bukkit;
-import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class vEnderChests extends JavaPlugin {
@@ -28,17 +28,14 @@ public final class vEnderChests extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        getLogger().info("HI");
         instance = this;
         loadConfig();
         registerListeners();
         registerCommands();
-//        registerGUI();
     }
 
     @Override
     public void onDisable() {
-        getLogger().info("BYE");
         saveConfig();
     }
 
@@ -60,6 +57,8 @@ public final class vEnderChests extends JavaPlugin {
 
         data.saveConfig(dataManager.getConfig());
         dataManager.save();
+
+        saveDefaultConfig();
     }
 
     public void registerListeners() {
@@ -69,10 +68,8 @@ public final class vEnderChests extends JavaPlugin {
     }
 
     public void registerCommands() {
-        this.getCommand("enderchest").setExecutor(new EnderChest());
+        this.getCommand("enderchest").setExecutor(new EnderChestCommand());
+        this.getCommand("venderchest").setExecutor(new vEnderChestCommand());
     }
 
-//    public void registerGUI() {
-//        enderChestGUI = new EnderChestGUI();
-//    }
 }

@@ -1,0 +1,14 @@
+# ===>
+# vEnderChests v0.9-alpha
+# ===>
+Ranks:
+  # rows 1-6
+  vip:
+    rows: 3
+  svip:
+    rows: 4
+  sponsor:
+    rows: 5
+  swagger:
+    rows: 6
+enderChestTitle: "&9Twoj EnderChest"

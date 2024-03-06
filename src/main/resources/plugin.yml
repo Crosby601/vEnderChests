@@ -7,3 +7,8 @@ commands:
     aliases:
       - ec
     usage: /enderchest
+  venderchest:
+      description: Glowna komenda pluginu vEnderChests
+      aliases:
+        - vec
+      usage: /venderchest
