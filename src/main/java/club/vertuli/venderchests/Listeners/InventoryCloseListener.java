@@ -46,7 +46,7 @@ public class InventoryCloseListener implements Listener {
     private ItemStack[] getLoopItems(Player p, int slots, Inventory inv) {
         ItemStack[] is = new ItemStack[slots];
         for (int i=0; i < slots; i++) {
-            if (inv.getItem(i).getType() == null) {
+            if (inv.getItem(i) == null) {
                 ItemStack air = new ItemStack(Material.AIR);
                 is[i] = air;
             } else {
