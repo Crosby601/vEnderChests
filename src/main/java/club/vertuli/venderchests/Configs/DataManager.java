@@ -7,6 +7,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.List;
 import java.util.Set;
 
 public class DataManager {
@@ -35,9 +36,15 @@ public class DataManager {
         int ids = keys.size();
         Player p = null;
         ItemStack[] items = new ItemStack[0];
+        List<ItemStack> list = null;
         for (int i = 0; i < ids; i++) {
             p = (Player) cfg.getOfflinePlayer(i + "player");
-            items = cfg.getList(i + "items").toArray(new ItemStack[0]);
+            list = (List<ItemStack>) cfg.getList(i + "items");
+            int a = 0;
+            for(ItemStack is : list) {
+                items[a] = is;
+                a++;
+            }
         }
         enderChestGUI.getEnderChestInv().put(p, items);
     }
