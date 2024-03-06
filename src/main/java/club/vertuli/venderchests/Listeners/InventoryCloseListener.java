@@ -4,6 +4,7 @@ import club.vertuli.venderchests.GUI.EnderChestGUI;
 import club.vertuli.venderchests.Utils.Color;
 import club.vertuli.venderchests.vEnderChests;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -45,7 +46,12 @@ public class InventoryCloseListener implements Listener {
     private ItemStack[] getLoopItems(Player p, int slots, Inventory inv) {
         ItemStack[] is = new ItemStack[slots];
         for (int i=0; i < slots; i++) {
-            is[i] = inv.getItem(i);
+            if (inv.getItem(i).getType() == null) {
+                ItemStack air = new ItemStack(Material.AIR);
+                is[i] = air;
+            } else {
+                is[i] = inv.getItem(i);
+            }
         }
         return is;
     }
