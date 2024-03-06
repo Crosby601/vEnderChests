@@ -28,14 +28,14 @@ public class InventoryCloseListener implements Listener {
         if (e.getInventory().getTitle().equalsIgnoreCase(enderChestGUI.getInventoryName())) {
             HumanEntity p = (Player)e.getPlayer();
             p.sendMessage("zapisywanie");
-            if (p.hasPermission("vEnderChest.vip")) {
-                enderChestGUI.getEnderChestInv().put((Player) p,getLoopItems((Player) p, 9*vipRows, e.getInventory()));
-            } else if (p.hasPermission("vEnderChest.svip")) {
-                enderChestGUI.getEnderChestInv().put((Player) p,getLoopItems((Player) p, 9*svipRows, e.getInventory()));
+            if (p.hasPermission("vEnderChest.swagger")) {
+                enderChestGUI.getEnderChestInv().put((Player) p,getLoopItems((Player) p, 9*swaggerRows, e.getInventory()));
             } else if (p.hasPermission("vEnderChest.sponsor")) {
                 enderChestGUI.getEnderChestInv().put((Player) p,getLoopItems((Player) p, 9*sponsorRows, e.getInventory()));
-            } else if (p.hasPermission("vEnderChest.swagger")) {
-                enderChestGUI.getEnderChestInv().put((Player) p,getLoopItems((Player) p, 9*swaggerRows, e.getInventory()));
+            } else if (p.hasPermission("vEnderChest.svip")) {
+                enderChestGUI.getEnderChestInv().put((Player) p,getLoopItems((Player) p, 9*svipRows, e.getInventory()));
+            } else if (p.hasPermission("vEnderChest.vip")) {
+                enderChestGUI.getEnderChestInv().put((Player) p,getLoopItems((Player) p, 9*vipRows, e.getInventory()));
             } else {
                 vEnderChests.getInstance().getLogger().info(Color.colorize("&9vEnderChest &7- &cBłąd zapisywania enderchest'a!"));
             }
