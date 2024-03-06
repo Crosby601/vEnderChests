@@ -27,7 +27,6 @@ public class InventoryCloseListener implements Listener {
     public void onInventoryClose(InventoryCloseEvent e) {
         if (e.getInventory().getTitle().equalsIgnoreCase(enderChestGUI.getInventoryName())) {
             HumanEntity p = (Player)e.getPlayer();
-            p.sendMessage("zapisywanie");
             if (p.hasPermission("vEnderChest.swagger")) {
                 enderChestGUI.getEnderChestInv().put((Player) p,getLoopItems((Player) p, 9*swaggerRows, e.getInventory()));
             } else if (p.hasPermission("vEnderChest.sponsor")) {
@@ -39,7 +38,6 @@ public class InventoryCloseListener implements Listener {
             } else {
                 vEnderChests.getInstance().getLogger().info(Color.colorize("&9vEnderChest &7- &cBłąd zapisywania enderchest'a!"));
             }
-            p.sendMessage("" + Arrays.toString(enderChestGUI.getEnderChestInv().get(p)));
         }
     }
 

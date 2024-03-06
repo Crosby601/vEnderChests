@@ -1,5 +1,6 @@
 package club.vertuli.venderchests;
 
+import club.vertuli.venderchests.Commands.EnderChest;
 import club.vertuli.venderchests.Configs.ConfigCreator;
 import club.vertuli.venderchests.Configs.DataManager;
 import club.vertuli.venderchests.GUI.EnderChestGUI;
@@ -29,8 +30,9 @@ public final class vEnderChests extends JavaPlugin {
     public void onEnable() {
         getLogger().info("HI");
         instance = this;
-        registerListeners();
         loadConfig();
+        registerListeners();
+        registerCommands();
 //        registerGUI();
     }
 
@@ -64,6 +66,10 @@ public final class vEnderChests extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new InventoryOpenListener(), this);
         Bukkit.getPluginManager().registerEvents(new InventoryCloseListener(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
+    }
+
+    public void registerCommands() {
+        this.getCommand("enderchest").setExecutor(new EnderChest());
     }
 
 //    public void registerGUI() {
