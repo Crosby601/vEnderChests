@@ -14,10 +14,8 @@ public class EnderChest implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] strings) {
         if (sender instanceof Player) {
             Player p = (Player) sender;
-            if (label.equalsIgnoreCase("enderchest")) {
-                enderChestGUI.openEnderChestGUI(p);
-                return true;
-            }
+            enderChestGUI.openEnderChestGUI(p);
+            return true;
         }
         return false;
     }
