@@ -1,6 +1,6 @@
 # vEnderChests 🌌
 
-![version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000) ![Minecraft](https://img.shields.io/badge/Minecraft-1.8+-brightgreen.svg) ![Java](https://img.shields.io/badge/Java-8+-red.svg)
+![version](https://img.shields.io/badge/version-0.9-blue.svg?cacheSeconds=2592000) ![Minecraft](https://img.shields.io/badge/Minecraft-1.8+-brightgreen.svg) ![Java](https://img.shields.io/badge/Java-8+-red.svg)
 
 vEnderChests to zaawansowany plugin do serwerów Minecraft, który umożliwia graczom personalizację i rozszerzone zarządzanie ich EnderChestami. Umożliwia między innymi zapisywanie zawartości EnderChestów do pliku konfiguracyjnego i wczytywanie ich po ponownym załadowaniu serwera.
 
